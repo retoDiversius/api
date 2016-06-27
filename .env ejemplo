@@ -1,0 +1,4 @@
+MONGODB="mongodb://"
+CUSTOM_PORT=numero_de_puerto
+CUSTOM_IP='ip'
+TOKEN_SECRET='token_secreto'
