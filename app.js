@@ -26,20 +26,11 @@ var auth = require('./controllers/auth');
 var middleware = require('./controllers/middleware');
 var auth = require('./controllers/auth');  
 
-// Rutas de autenticación y login
-app.post('/auth/signup', auth.emailSignup); // para crear usuario
-app.post('/auth/login', auth.emailLogin); //para logearse
-
-// Ruta solo accesible si estás autenticado
-app.get('/private',middleware.ensureAuthenticated, function(req, res) {
-	res.send(req.user);//_id del usuario si el token es correcto
-} );
-
 //app.get('/', loginCtrl.index);
 //app.post('/', loginCtrl.login);
 
 // Rutas de autenticación y login
-app.post('/auth/signup', auth.emailSignup); // para crear usuario
+//app.post('/auth/signup', auth.emailSignup); // para crear usuario
 app.post('/auth/login', auth.emailLogin); //para logearse
 
 // Ruta solo accesible si estás autenticado
