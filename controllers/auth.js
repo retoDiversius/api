@@ -23,7 +23,10 @@ var bcrypt = require('bcrypt');
 
 
 //login normal (en tu caso en la función del passport)
-exports.emailLogin = function(req, res) {  
+exports.emailLogin = function(req, res) { 
+    if(req.body.correo.toLowerCase()==''||req.body.correo.toLowerCase()==null||req.body.password==''||req.body.password==null){
+        return res.send('ko');
+    }
     User.findOne({correo: req.body.correo.toLowerCase()}, function(err, user) {
         if(err){console.log(err);}
         bcrypt.compare(req.body.password, user.password, function(err, resultado) {
